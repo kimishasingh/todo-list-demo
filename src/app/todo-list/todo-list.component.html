@@ -1,0 +1,14 @@
+<div class="col-12 p-3">
+  <h1>{{ name }}'s To-do List</h1>
+  <hr>
+  <ul class="p-0">
+    <div *ngFor="let todo of todos">
+      <input
+        type="checkbox"
+        [checked]="todo.isCompleted"
+        (change)="markAsChecked(todo)"
+      />
+      {{ todo.title }}
+    </div>
+  </ul>
+</div>

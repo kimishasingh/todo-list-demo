@@ -1,10 +1,10 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule, Injector } from "@angular/core";
-import { createCustomElement } from "@angular/elements";
-import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from "./app.component";
-import { TodoListComponent } from "./todo-list/todo-list.component";
+import { AppComponent } from './app.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   declarations: [AppComponent, TodoListComponent],
@@ -24,6 +24,6 @@ export class AppModule {
     const el = createCustomElement(TodoListComponent, {
       injector: this.injector
     });
-    customElements.define("my-todo-list", el);
+    customElements.define('my-todo-list', el);
   }
 }

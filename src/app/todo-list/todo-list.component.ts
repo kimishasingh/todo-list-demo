@@ -1,39 +1,22 @@
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation,
-  Input,
-  Output,
-  EventEmitter
-} from "@angular/core";
-import { TodoService } from "./todo.service";
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation,} from '@angular/core';
+import {TodoService} from './todo.service';
 
 @Component({
-  selector: "app-todo-list",
-  template: `
-    <p>{{ name }}'s todo list</p>
-    <ul>
-      <li *ngFor="let todo of todos">
-        <input
-          type="checkbox"
-          [checked]="todo.isCompleted"
-          (change)="markAsChecked(todo)"
-        />
-        {{ todo.title }}
-      </li>
-    </ul>
-  `,
-  encapsulation: ViewEncapsulation.Native
+  selector: 'app-todo-list',
+  templateUrl: 'todo-list.component.html',
+  styleUrls: ['todo-list.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TodoListComponent implements OnInit {
   todos: any[] = [];
-  @Input("name") name: string;
+  @Input('name') name: string;
   @Output() todoComplete = new EventEmitter();
 
-  constructor(private service: TodoService) {}
+  constructor(private service: TodoService) {
+  }
 
   ngOnInit() {
-    this.service.getTodos().subscribe(todos => {
+    this.service.getTodos().subscribe((todos) => {
       this.todos = todos;
     });
   }
