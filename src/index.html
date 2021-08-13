@@ -11,3 +11,18 @@
     <my-todo-list name="Harry Potter"></my-todo-list>
   </body>
 </html>
+
+
+<script>
+
+  const ele = document.querySelector("my-todo-list");
+  ele.addEventListener("todoComplete", function onToDoComplete(e) {
+    const completed = e.detail.isCompleted;
+    if (completed) {
+      alert("Task completed: " + e.detail.title);
+    } else {
+      alert("Task not completed: " + e.details.title);
+    }
+  })
+
+</script>
